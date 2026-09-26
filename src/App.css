@@ -1,0 +1,135 @@
+/* =========================================
+   GLOBAL CSS
+========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+ 
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  width: 100%;
+  min-height: 100vh;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+
+/* =========================================
+   APP
+========================================= */
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+
+  background: var(--page-bg);
+  color: var(--page-text);
+
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease;
+}
+
+
+/* =========================================
+   DARK THEME
+========================================= */
+
+.dark-theme {
+  --page-bg: #030b1c;
+  --page-text: #ffffff;
+
+  --card-bg: #071426;
+  --card-bg-hover: #0a1a30;
+
+  --border-color: #17304d;
+
+  --nav-bg: #030b1c;
+  --nav-border: #14263d;
+
+  --input-bg: #061224;
+
+  --muted-text: #aeb9c8;
+
+  --shadow-color: rgba(0, 217, 255, 0.08);
+}
+
+
+/* =========================================
+   LIGHT THEME
+========================================= */
+
+.light-theme {
+  --page-bg: #f5f8fc;
+  --page-text: #111827;
+
+  --card-bg: #ffffff;
+  --card-bg-hover: #f8fbff;
+
+  --border-color: #dce4ed;
+
+  --nav-bg: #ffffff;
+  --nav-border: #dce4ed;
+
+  --input-bg: #ffffff;
+
+  --muted-text: #5f6b7a;
+
+  --shadow-color: rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================
+   COMMON
+========================================= */
+
+.website-content {
+  width: 100%;
+  min-height: calc(100vh - 82px);
+
+  background: var(--page-bg);
+  color: var(--page-text);
+
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease;
+}
+
+
+/* =========================================
+   COMMON BUTTON
+========================================= */
+
+button {
+  font-family: inherit;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+  .website-content {
+    min-height: calc(100vh - 72px);
+  }
+
+}

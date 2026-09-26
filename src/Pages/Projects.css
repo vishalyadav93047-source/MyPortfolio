@@ -1,0 +1,458 @@
+
+
+.projects-section {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+
+  overflow: hidden;
+
+  box-sizing: border-box;
+
+  padding: 90px 8%;
+
+  background: var(--page-bg);
+  color: var(--page-text);
+
+  transition:
+    background 0.35s ease,
+    color 0.35s ease;
+}
+
+
+
+
+.projects-section::before {
+  content: "";
+
+  position: absolute;
+
+  width: 450px;
+  height: 450px;
+
+  right: -200px;
+  top: 100px;
+
+  background: rgba(0, 217, 255, 0.07);
+
+  border-radius: 50%;
+
+  filter: blur(90px);
+
+  pointer-events: none;
+}
+
+
+
+
+.projects-header {
+  width: 100%;
+
+  text-align: center;
+
+  margin-bottom: 65px;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+
+.projects-label {
+  margin: 0 0 12px 0;
+
+  color: #00d9ff;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  letter-spacing: 3px;
+}
+
+
+.projects-title {
+  margin: 0;
+
+  color: #ffffff;
+  color: var(--page-text);
+
+  font-size: 52px;
+
+  font-weight: 700;
+}
+
+
+.projects-title span {
+  color: #00d9ff;
+}
+
+
+.projects-subtitle {
+  max-width: 650px;
+
+  margin: 15px auto 0;
+
+  color: #8996a8;
+
+  font-size: 16px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================
+   PROJECT GRID
+========================================= */
+
+.projects-grid {
+  width: 100%;
+
+  max-width: 1150px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 25px;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+
+/* =========================================
+   PROJECT CARD
+========================================= */
+
+.projects-card {
+  width: 100%;
+
+  overflow: hidden;
+
+  border: 1px solid #182d48;
+
+  border-radius: 18px;
+
+  background: #071326;
+
+  box-sizing: border-box;
+
+  transition: all 0.3s ease;
+}
+
+
+.projects-card:hover {
+  transform: translateY(-7px);
+
+  border-color: #00d9ff;
+
+  box-shadow:
+    0 18px 40px rgba(0, 217, 255, 0.08);
+}
+
+
+/* =========================================
+   PROJECT IMAGE
+========================================= */
+
+.projects-image {
+  width: 100%;
+
+  height: 210px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: rgba(0, 217, 255, 0.8);
+
+  border-bottom: 1px solid #182d48;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+
+.projects-image::before {
+  content: "";
+
+  position: absolute;
+
+  width: 170px;
+  height: 170px;
+
+  border-radius: 50%;
+
+  background: rgba(0, 217, 255, 0.08);
+
+  filter: blur(20px);
+}
+
+
+.projects-image svg {
+  position: relative;
+
+  z-index: 1;
+}
+
+
+/* =========================================
+   DIFFERENT PROJECT BACKGROUNDS
+========================================= */
+
+.projects-image-one {
+  background: linear-gradient(
+    135deg,
+    #0a1d32,
+    #06111f
+  );
+}
+
+
+.projects-image-two {
+  background: linear-gradient(
+    135deg,
+    #081d2d,
+    #071021
+  );
+}
+
+
+.projects-image-three {
+  background: linear-gradient(
+    135deg,
+    #0b1932,
+    #06101f
+  );
+}
+
+
+.projects-image-four {
+  background: linear-gradient(
+    135deg,
+    #091b2d,
+    #05101d
+  );
+}
+
+
+/* =========================================
+   PROJECT CONTENT
+========================================= */
+
+.projects-content {
+  padding: 25px;
+
+  box-sizing: border-box;
+}
+
+
+.projects-category {
+  margin-bottom: 10px;
+
+  color: #00d9ff;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+
+.projects-content h2 {
+  margin: 0 0 12px 0;
+
+  color: #ffffff;
+
+  font-size: 22px;
+
+  line-height: 1.3;
+}
+
+
+.projects-content p {
+  min-height: 65px;
+
+  margin: 0 0 18px 0;
+
+  color: #8996a8;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================
+   TECHNOLOGIES
+========================================= */
+
+.projects-tech {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-bottom: 22px;
+}
+
+
+.projects-tech span {
+  padding: 6px 10px;
+
+  border: 1px solid #1b3450;
+
+  border-radius: 6px;
+
+  background: #09192d;
+
+  color: #aeb9c9;
+
+  font-size: 12px;
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.projects-buttons {
+  width: 100%;
+
+  display: flex;
+
+  gap: 10px;
+}
+
+
+.projects-live-button,
+.projects-github-button {
+  height: 40px;
+
+  padding: 0 15px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  border-radius: 7px;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   LIVE DEMO BUTTON
+========================================= */
+
+.projects-live-button {
+  border: 1px solid #00d9ff;
+
+  background: #00d9ff;
+
+  color: #03101c;
+}
+
+
+.projects-live-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(0, 217, 255, 0.2);
+}
+
+
+/* =========================================
+   GITHUB BUTTON
+========================================= */
+
+.projects-github-button {
+  border: 1px solid #253b55;
+
+  background: transparent;
+
+  color: #c4ceda;
+}
+
+
+.projects-github-button:hover {
+  border-color: #00d9ff;
+
+  color: #00d9ff;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+
+  .projects-section {
+    padding: 75px 5%;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .projects-section {
+    padding: 60px 20px;
+  }
+
+  .projects-title {
+    font-size: 40px;
+  }
+
+  .projects-subtitle {
+    font-size: 14px;
+  }
+
+  .projects-image {
+    height: 180px;
+  }
+
+  .projects-content {
+    padding: 22px;
+  }
+
+  .projects-buttons {
+    flex-direction: column;
+  }
+
+  .projects-live-button,
+  .projects-github-button {
+    width: 100%;
+  }
+
+}

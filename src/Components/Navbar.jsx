@@ -1,78 +1,103 @@
-import React, { useState } from "react";
-import { Code2, Moon, Sun } from "lucide-react";
+import React from "react";
+import { Code2, Sun, Moon } from "lucide-react";
 import "./Navbar.css";
+import { Link, Links } from 'react-router-dom';
 
-function Navbar() {
-  const [darkMode, setDarkMode] = useState(true);
-
+function Navbar({ darkMode, toggleTheme }) {
   return (
-    <nav className={`navbar ${darkMode ? "dark" : "light"}`}>
+    <nav className="navbar">
 
-      {/* ================= LOGO ================= */}
-      <div className="logo">
-        <Code2 className="logo-icon" />
+      {/* Logo */}
+      <div className="navbar-logo">
 
-        <span className="logo-name">Vishal</span>
-        <span className="logo-blue"> Kumar</span>
+        <Code2 className="navbar-logo-icon" size={36} />
+
+        <div className="navbar-name">
+          <span>Vishal</span>
+          <span>Kumar</span>
+        </div>
+
       </div>
 
 
-      {/* ================= MENU ================= */}
-      <div className="nav-menu">
+      {/* Navigation */}
+      <div className="navbar-menu">
 
-        <button className="nav-btn active">
+        <ul className="navbar-item">
+
+          <Link to={'/'} style={{textDecoration: "none" }}><li>Home</li></Link>
+          <Link to={'/About'} style={{textDecoration: "none" }}><li>About</li></Link>
+          <Link to={'/Skills'} style={{textDecoration: "none" }}><li>Skills</li></Link>
+          <Link to={'/Projects'} style={{textDecoration: "none" }}><li>Projects</li></Link>
+          <Link to={'/Contact'} style={{textDecoration: "none" }}><li>Contact</li></Link>
+
+        </ul>
+
+
+        
+
+        {/* <button className="navbar-item">
           Home
         </button>
 
-        <button className="nav-btn">
+        <button className="navbar-item">
           About
         </button>
 
-        <button className="nav-btn">
+        <button className="navbar-item">
           Skills
         </button>
 
-        <button className="nav-btn">
+        <button className="navbar-item">
           Projects
-        </button>
+        </button> */}
 
-        <button className="nav-btn">
+        {/* <button className="navbar-item">
           Education
         </button>
 
-        <button className="nav-btn">
+        <button className="navbar-item">
           Certifications
-        </button>
+        </button> */}
 
-        <button className="nav-btn">
+        {/* <button className="navbar-item">
           Contact
-        </button>
+        </button> */}
 
       </div>
 
 
-      {/* ================= DARK / LIGHT ================= */}
+      {/* Theme Button */}
       <button
         className="theme-toggle"
-        onClick={() => setDarkMode(!darkMode)}
-        aria-label="Change theme"
+        onClick={toggleTheme}
+        aria-label="Toggle theme"
       >
 
-        <Moon className="moon" size={17} />
-
-        <span className="toggle-circle">
-          {darkMode ? (
-            <Moon size={15} />
-          ) : (
-            <Sun size={15} />
-          )}
+        <span
+          className={
+            darkMode
+              ? "theme-icon active-theme-icon"
+              : "theme-icon"
+          }
+        >
+          <Moon size={17} />
         </span>
 
-        <Sun className="sun" size={17} />
+        <span
+          className={
+            !darkMode
+              ? "theme-icon active-theme-icon"
+              : "theme-icon"
+          }
+        >
+          <Sun size={17} />
+        </span>
 
       </button>
 
     </nav>
+    
   );
 }
 
