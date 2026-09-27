@@ -10,70 +10,114 @@ import Navbar from "./Components/Navbar";
 
 import "./App.css";
 
+
 function App() {
 
+  
+
   const [darkMode, setDarkMode] = useState(true);
+
+
+
+
   const [activeSection, setActiveSection] = useState("home");
 
+
+  
+
   const toggleTheme = () => {
+
     setDarkMode((prev) => !prev);
+
   };
 
 
+  
+
   useEffect(() => {
 
-    const sections = document.querySelectorAll(".page-section");
+    const sections =
+      document.querySelectorAll(".page-section");
+
 
     const observer = new IntersectionObserver(
+
       (entries) => {
 
-        entries.forEach((entry) => {
+        const visibleSections = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort(
+            (a, b) =>
+              b.intersectionRatio -
+              a.intersectionRatio
+          );
 
-          if (entry.isIntersecting) {
 
-            entry.target.classList.add("section-visible");
+        if (visibleSections.length > 0) {
 
-            setActiveSection(entry.target.id);
+          const currentSection =
+            visibleSections[0].target;
 
-          } else {
 
-            entry.target.classList.remove("section-visible");
+          setActiveSection(
+            currentSection.id
+          );
 
-          }
 
-        });
+          currentSection.classList.add(
+            "section-visible"
+          );
+
+        }
 
       },
+
       {
-        threshold: 0.18,
-        rootMargin: "-70px 0px -10% 0px",
+        threshold: [0.18, 0.35, 0.5],
+
+        rootMargin:
+          "-70px 0px -20% 0px",
       }
+
     );
 
 
     sections.forEach((section) => {
+
       observer.observe(section);
+
     });
 
 
     return () => {
+
       sections.forEach((section) => {
+
         observer.unobserve(section);
+
       });
+
     };
 
   }, []);
 
 
+  
+
   const scrollToSection = (id) => {
 
-    const section = document.getElementById(id);
+    const section =
+      document.getElementById(id);
+
 
     if (section) {
 
       section.scrollIntoView({
+
         behavior: "smooth",
+
         block: "start",
+
       });
 
     }
@@ -81,7 +125,10 @@ function App() {
   };
 
 
+  
+
   return (
+
     <div
       className={
         darkMode
@@ -90,65 +137,87 @@ function App() {
       }
     >
 
+
+      
+
       <Navbar
+
         darkMode={darkMode}
+
         toggleTheme={toggleTheme}
+
         activeSection={activeSection}
+
         scrollToSection={scrollToSection}
+
       />
 
 
-      {/* HOME */}
+      
 
       <section
         id="home"
         className="page-section home-section"
       >
+
         <Home />
+
       </section>
 
 
-      {/* ABOUT */}
+      
 
       <section
         id="about"
         className="page-section about-section-wrapper"
       >
+
         <About />
+
       </section>
 
 
-      {/* SKILLS */}
+      
 
       <section
         id="skills"
         className="page-section skills-section-wrapper"
       >
+
         <Skills />
+
       </section>
 
 
-      {/* PROJECTS */}
+     
 
       <section
         id="projects"
         className="page-section projects-section-wrapper"
       >
+
         <Projects />
+
       </section>
 
 
-      {/* CONTACT */}
+      
 
       <section
         id="contact"
         className="page-section contact-section-wrapper"
       >
+
         <Contact />
+
       </section>
 
+
     </div>
+
   );
+
 }
+
 
 export default App;

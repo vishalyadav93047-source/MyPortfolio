@@ -1,29 +1,47 @@
 import React, { useState } from "react";
-import { Code2, Sun, Moon, Menu, X } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import {
+  Code2,
+  Sun,
+  Moon,
+  Menu,
+  X
+} from "lucide-react";
+
 import "./Navbar.css";
 
-function Navbar({ darkMode, toggleTheme }) {
+
+function Navbar({
+  darkMode,
+  toggleTheme,
+  activeSection,
+  scrollToSection
+}) {
+
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const location = useLocation();
 
-  const closeMenu = () => {
+  const handleNavigation = (section) => {
+
+    scrollToSection(section);
+
     setMenuOpen(false);
+
   };
 
-  const isActive = (path) => {
-    return location.pathname === path;
-  };
 
   return (
+
     <nav className="navbar">
 
-      {/* =========================
-          LOGO
-      ========================== */}
 
-      <div className="navbar-logo">
+      {/* ==============================
+          LOGO
+      =============================== */}
+
+      <div
+        className="navbar-logo"
+        onClick={() => handleNavigation("home")}
+      >
 
         <Code2
           className="navbar-logo-icon"
@@ -31,130 +49,119 @@ function Navbar({ darkMode, toggleTheme }) {
         />
 
         <div className="navbar-name">
+
           <span>Vishal</span>
+
           <span>Kumar</span>
+
         </div>
 
       </div>
 
 
-      {/* =========================
-          NAVIGATION MENU
-      ========================== */}
+      {/* ==============================
+          DESKTOP MENU
+      =============================== */}
 
-      <div
-        className={`navbar-menu ${
-          menuOpen ? "mobile-open" : ""
-        }`}
-      >
-
-        <ul className="navbar-item">
-
-          {/* HOME */}
-
-          <li>
-            <Link
-              to="/"
-              className={`nav-link ${
-                isActive("/") ? "active" : ""
-              }`}
-              onClick={closeMenu}
-            >
-              Home
-            </Link>
-          </li>
+      <div className="desktop-menu">
 
 
-          {/* ABOUT */}
-
-          <li>
-            <Link
-              to="/About"
-              className={`nav-link ${
-                isActive("/About") ? "active" : ""
-              }`}
-              onClick={closeMenu}
-            >
-              About
-            </Link>
-          </li>
+        <button
+          className={
+            activeSection === "home"
+              ? "nav-link active"
+              : "nav-link"
+          }
+          onClick={() => handleNavigation("home")}
+        >
+          Home
+        </button>
 
 
-          {/* PROJECTS */}
-
-          <li>
-            <Link
-              to="/Projects"
-              className={`nav-link ${
-                isActive("/Projects") ? "active" : ""
-              }`}
-              onClick={closeMenu}
-            >
-              Projects
-            </Link>
-          </li>
+        <button
+          className={
+            activeSection === "about"
+              ? "nav-link active"
+              : "nav-link"
+          }
+          onClick={() => handleNavigation("about")}
+        >
+          About
+        </button>
 
 
-          {/* SKILLS */}
-
-          <li>
-            <Link
-              to="/Skills"
-              className={`nav-link ${
-                isActive("/Skills") ? "active" : ""
-              }`}
-              onClick={closeMenu}
-            >
-              Skills
-            </Link>
-          </li>
+        <button
+          className={
+            activeSection === "skills"
+              ? "nav-link active"
+              : "nav-link"
+          }
+          onClick={() => handleNavigation("skills")}
+        >
+          Skills
+        </button>
 
 
-          {/* CONTACT */}
+        <button
+          className={
+            activeSection === "projects"
+              ? "nav-link active"
+              : "nav-link"
+          }
+          onClick={() => handleNavigation("projects")}
+        >
+          Projects
+        </button>
 
-          <li>
-            <Link
-              to="/Contact"
-              className={`nav-link ${
-                isActive("/Contact") ? "active" : ""
-              }`}
-              onClick={closeMenu}
-            >
-              Contact
-            </Link>
-          </li>
 
-        </ul>
+        <button
+          className={
+            activeSection === "contact"
+              ? "nav-link active"
+              : "nav-link"
+          }
+          onClick={() => handleNavigation("contact")}
+        >
+          Contact
+        </button>
+
 
       </div>
 
 
-      {/* =========================
+      {/* ==============================
           RIGHT SIDE
-      ========================== */}
+      =============================== */}
 
       <div className="navbar-right">
 
-        {/* THEME TOGGLE */}
+
+        {/* THEME */}
 
         <button
           className="theme-toggle"
           onClick={toggleTheme}
+          type="button"
           aria-label="Toggle theme"
         >
 
           <span
-            className={`theme-icon ${
-              darkMode ? "active-theme-icon" : ""
-            }`}
+            className={
+              darkMode
+                ? "theme-icon active-theme-icon"
+                : "theme-icon"
+            }
           >
             <Moon size={19} />
           </span>
 
+
           <span
-            className={`theme-icon ${
-              !darkMode ? "active-theme-icon" : ""
-            }`}
+            className={
+              !darkMode
+                ? "theme-icon active-theme-icon"
+                : "theme-icon"
+            }
           >
             <Sun size={19} />
           </span>
@@ -167,21 +174,101 @@ function Navbar({ darkMode, toggleTheme }) {
         <button
           className="mobile-menu-btn"
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle navigation menu"
+          type="button"
+          aria-label="Toggle menu"
         >
 
           {menuOpen ? (
-            <X size={30} />
+            <X size={32} />
           ) : (
-            <Menu size={30} />
+            <Menu size={32} />
           )}
 
         </button>
 
+
       </div>
 
+
+      {/* ==============================
+          MOBILE MENU
+      =============================== */}
+
+      <div
+        className={
+          menuOpen
+            ? "mobile-menu mobile-menu-open"
+            : "mobile-menu"
+        }
+      >
+
+        <button
+          className={
+            activeSection === "home"
+              ? "mobile-link active"
+              : "mobile-link"
+          }
+          onClick={() => handleNavigation("home")}
+        >
+          Home
+        </button>
+
+
+        <button
+          className={
+            activeSection === "about"
+              ? "mobile-link active"
+              : "mobile-link"
+          }
+          onClick={() => handleNavigation("about")}
+        >
+          About
+        </button>
+
+
+        <button
+          className={
+            activeSection === "skills"
+              ? "mobile-link active"
+              : "mobile-link"
+          }
+          onClick={() => handleNavigation("skills")}
+        >
+          Skills
+        </button>
+
+
+        <button
+          className={
+            activeSection === "projects"
+              ? "mobile-link active"
+              : "mobile-link"
+          }
+          onClick={() => handleNavigation("projects")}
+        >
+          Projects
+        </button>
+
+
+        <button
+          className={
+            activeSection === "contact"
+              ? "mobile-link active"
+              : "mobile-link"
+          }
+          onClick={() => handleNavigation("contact")}
+        >
+          Contact
+        </button>
+
+      </div>
+
+
     </nav>
+
   );
+
 }
+
 
 export default Navbar;
