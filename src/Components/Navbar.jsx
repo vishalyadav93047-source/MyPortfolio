@@ -1,23 +1,29 @@
-import React from "react";
-import { Code2, Sun, Moon } from "lucide-react";
+import React, { useState } from "react";
+import { Code2, Sun, Moon, Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 
-function Navbar({
-  darkMode,
-  toggleTheme,
-  activeSection,
-  scrollToSection
-}) {
+function Navbar({ darkMode, toggleTheme }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const location = useLocation();
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
 
   return (
     <nav className="navbar">
 
-      {/* Logo */}
+      {/* =========================
+          LOGO
+      ========================== */}
 
-      <div
-        className="navbar-logo"
-        onClick={() => scrollToSection("home")}
-      >
+      <div className="navbar-logo">
 
         <Code2
           className="navbar-logo-icon"
@@ -25,99 +31,97 @@ function Navbar({
         />
 
         <div className="navbar-name">
-
           <span>Vishal</span>
           <span>Kumar</span>
-
         </div>
 
       </div>
 
 
-      {/* Navigation */}
+      {/* =========================
+          NAVIGATION MENU
+      ========================== */}
 
-      <div className="navbar-menu">
+      <div
+        className={`navbar-menu ${
+          menuOpen ? "mobile-open" : ""
+        }`}
+      >
 
         <ul className="navbar-item">
 
+          {/* HOME */}
 
           <li>
-
-            <button
-              className={
-                activeSection === "home"
-                  ? "nav-link active"
-                  : "nav-link"
-              }
-              onClick={() => scrollToSection("home")}
+            <Link
+              to="/"
+              className={`nav-link ${
+                isActive("/") ? "active" : ""
+              }`}
+              onClick={closeMenu}
             >
               Home
-            </button>
-
+            </Link>
           </li>
 
 
-          <li>
+          {/* ABOUT */}
 
-            <button
-              className={
-                activeSection === "about"
-                  ? "nav-link active"
-                  : "nav-link"
-              }
-              onClick={() => scrollToSection("about")}
+          <li>
+            <Link
+              to="/About"
+              className={`nav-link ${
+                isActive("/About") ? "active" : ""
+              }`}
+              onClick={closeMenu}
             >
               About
-            </button>
-
+            </Link>
           </li>
 
 
-          <li>
-
-            <button
-              className={
-                activeSection === "skills"
-                  ? "nav-link active"
-                  : "nav-link"
-              }
-              onClick={() => scrollToSection("skills")}
-            >
-              Skills
-            </button>
-
-          </li>
-
+          {/* PROJECTS */}
 
           <li>
-
-            <button
-              className={
-                activeSection === "projects"
-                  ? "nav-link active"
-                  : "nav-link"
-              }
-              onClick={() => scrollToSection("projects")}
+            <Link
+              to="/Projects"
+              className={`nav-link ${
+                isActive("/Projects") ? "active" : ""
+              }`}
+              onClick={closeMenu}
             >
               Projects
-            </button>
-
+            </Link>
           </li>
 
 
-          <li>
+          {/* SKILLS */}
 
-            <button
-              className={
-                activeSection === "contact"
-                  ? "nav-link active"
-                  : "nav-link"
-              }
-              onClick={() => scrollToSection("contact")}
+          <li>
+            <Link
+              to="/Skills"
+              className={`nav-link ${
+                isActive("/Skills") ? "active" : ""
+              }`}
+              onClick={closeMenu}
+            >
+              Skills
+            </Link>
+          </li>
+
+
+          {/* CONTACT */}
+
+          <li>
+            <Link
+              to="/Contact"
+              className={`nav-link ${
+                isActive("/Contact") ? "active" : ""
+              }`}
+              onClick={closeMenu}
             >
               Contact
-            </button>
-
+            </Link>
           </li>
 
         </ul>
@@ -125,35 +129,56 @@ function Navbar({
       </div>
 
 
-      {/* Theme */}
+      {/* =========================
+          RIGHT SIDE
+      ========================== */}
 
-      <button
-        className="theme-toggle"
-        onClick={toggleTheme}
-      >
+      <div className="navbar-right">
 
-        <span
-          className={
-            darkMode
-              ? "theme-icon active-theme-icon"
-              : "theme-icon"
-          }
+        {/* THEME TOGGLE */}
+
+        <button
+          className="theme-toggle"
+          onClick={toggleTheme}
+          aria-label="Toggle theme"
         >
-          <Moon size={17} />
-        </span>
+
+          <span
+            className={`theme-icon ${
+              darkMode ? "active-theme-icon" : ""
+            }`}
+          >
+            <Moon size={19} />
+          </span>
+
+          <span
+            className={`theme-icon ${
+              !darkMode ? "active-theme-icon" : ""
+            }`}
+          >
+            <Sun size={19} />
+          </span>
+
+        </button>
 
 
-        <span
-          className={
-            !darkMode
-              ? "theme-icon active-theme-icon"
-              : "theme-icon"
-          }
+        {/* MOBILE MENU BUTTON */}
+
+        <button
+          className="mobile-menu-btn"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle navigation menu"
         >
-          <Sun size={17} />
-        </span>
 
-      </button>
+          {menuOpen ? (
+            <X size={30} />
+          ) : (
+            <Menu size={30} />
+          )}
+
+        </button>
+
+      </div>
 
     </nav>
   );
