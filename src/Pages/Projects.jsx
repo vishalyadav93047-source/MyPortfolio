@@ -7,6 +7,7 @@ import {
   Headphones,
   GitBranch,
 } from "lucide-react";
+import { RiGitRepositoryPrivateLine } from "react-icons/ri";
 
 import "./Projects.css";
 
@@ -14,7 +15,7 @@ function Projects() {
   return (
     <section className="projects-section">
 
-      {/* ================= HEADER ================= */}
+    
 
       <div className="projects-header">
 
@@ -34,8 +35,7 @@ function Projects() {
       </div>
 
 
-      {/* ================= PROJECT GRID ================= */}
-
+     
       <div className="projects-grid">
 
         {/* PROJECT 1 */}
@@ -117,15 +117,15 @@ function Projects() {
 
             <div className="projects-buttons">
 
-              <button className="projects-live-button">
-                <ExternalLink size={16} />
-                Live Demo
+              <button className="projects-private-button">
+                <RiGitRepositoryPrivateLine  size={16} />
+                Private Startup Project
               </button>
 
-              <button className="projects-github-button">
+              {/* <button className="projects-github-button">
                 <GitBranch size={16} />
                 GitHub
-              </button>
+              </button> */}
 
             </div>
 

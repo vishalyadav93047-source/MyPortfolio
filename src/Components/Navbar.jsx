@@ -1,77 +1,135 @@
 import React from "react";
 import { Code2, Sun, Moon } from "lucide-react";
 import "./Navbar.css";
-import { Link, Links } from 'react-router-dom';
 
-function Navbar({ darkMode, toggleTheme }) {
+function Navbar({
+  darkMode,
+  toggleTheme,
+  activeSection,
+  scrollToSection
+}) {
+
   return (
     <nav className="navbar">
 
       {/* Logo */}
-      <div className="navbar-logo">
 
-        <Code2 className="navbar-logo-icon" size={36} />
+      <div
+        className="navbar-logo"
+        onClick={() => scrollToSection("home")}
+      >
+
+        <Code2
+          className="navbar-logo-icon"
+          size={36}
+        />
 
         <div className="navbar-name">
+
           <span>Vishal</span>
           <span>Kumar</span>
+
         </div>
 
       </div>
 
 
       {/* Navigation */}
+
       <div className="navbar-menu">
 
         <ul className="navbar-item">
 
-          <Link to={'/'} style={{textDecoration: "none" }}><li>Home</li></Link>
-          <Link to={'/About'} style={{textDecoration: "none" }}><li>About</li></Link>
-          <Link to={'/Skills'} style={{textDecoration: "none" }}><li>Skills</li></Link>
-          <Link to={'/Projects'} style={{textDecoration: "none" }}><li>Projects</li></Link>
-          <Link to={'/Contact'} style={{textDecoration: "none" }}><li>Contact</li></Link>
+
+          <li>
+
+            <button
+              className={
+                activeSection === "home"
+                  ? "nav-link active"
+                  : "nav-link"
+              }
+              onClick={() => scrollToSection("home")}
+            >
+              Home
+            </button>
+
+          </li>
+
+
+          <li>
+
+            <button
+              className={
+                activeSection === "about"
+                  ? "nav-link active"
+                  : "nav-link"
+              }
+              onClick={() => scrollToSection("about")}
+            >
+              About
+            </button>
+
+          </li>
+
+
+          <li>
+
+            <button
+              className={
+                activeSection === "skills"
+                  ? "nav-link active"
+                  : "nav-link"
+              }
+              onClick={() => scrollToSection("skills")}
+            >
+              Skills
+            </button>
+
+          </li>
+
+
+          <li>
+
+            <button
+              className={
+                activeSection === "projects"
+                  ? "nav-link active"
+                  : "nav-link"
+              }
+              onClick={() => scrollToSection("projects")}
+            >
+              Projects
+            </button>
+
+          </li>
+
+
+          <li>
+
+            <button
+              className={
+                activeSection === "contact"
+                  ? "nav-link active"
+                  : "nav-link"
+              }
+              onClick={() => scrollToSection("contact")}
+            >
+              Contact
+            </button>
+
+          </li>
 
         </ul>
-
-
-        
-
-        {/* <button className="navbar-item">
-          Home
-        </button>
-
-        <button className="navbar-item">
-          About
-        </button>
-
-        <button className="navbar-item">
-          Skills
-        </button>
-
-        <button className="navbar-item">
-          Projects
-        </button> */}
-
-        {/* <button className="navbar-item">
-          Education
-        </button>
-
-        <button className="navbar-item">
-          Certifications
-        </button> */}
-
-        {/* <button className="navbar-item">
-          Contact
-        </button> */}
 
       </div>
 
 
-      {/* Theme Button */}
+      {/* Theme */}
+
       <button
         className="theme-toggle"
         onClick={toggleTheme}
-        aria-label="Toggle theme"
       >
 
         <span
@@ -83,6 +141,7 @@ function Navbar({ darkMode, toggleTheme }) {
         >
           <Moon size={17} />
         </span>
+
 
         <span
           className={
@@ -97,7 +156,6 @@ function Navbar({ darkMode, toggleTheme }) {
       </button>
 
     </nav>
-    
   );
 }
 

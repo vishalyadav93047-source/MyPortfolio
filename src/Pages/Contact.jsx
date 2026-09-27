@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Contact.css";
+import { Link } from "react-router-dom"
 
 import {
   Mail,
@@ -17,6 +18,7 @@ function Contact() {
     subject: "",
   });
 
+  // Input change
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -26,14 +28,17 @@ function Contact() {
     });
   };
 
+  // Form submit
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Check empty fields
     if (!formData.name || !formData.email || !formData.subject) {
       alert("Please fill all the fields.");
       return;
     }
 
+    // WhatsApp message
     const message = `Hello Vishal,
 
 I would like to contact you regarding your portfolio.
@@ -42,12 +47,14 @@ Name: ${formData.name}
 Email: ${formData.email}
 Subject: ${formData.subject}`;
 
-    const whatsappURL = `https://wa.me/919304702949?text=${encodeURIComponent(
-      message
-    )}`;
+    // WhatsApp URL
+    const whatsappURL =
+      `https://wa.me/919304702949?text=${encodeURIComponent(message)}`;
 
+    // Open WhatsApp
     window.open(whatsappURL, "_blank");
 
+    // Clear form
     setFormData({
       name: "",
       email: "",
@@ -58,8 +65,10 @@ Subject: ${formData.subject}`;
   return (
     <section className="contact-section">
 
-      {/* Header */}
+      
+
       <div className="contact-header">
+
         <p className="contact-label">
           GET IN TOUCH
         </p>
@@ -72,12 +81,17 @@ Subject: ${formData.subject}`;
           Have a project or opportunity in mind?
           Feel free to get in touch with me.
         </p>
+
       </div>
 
-      {/* Main Container */}
+
+      
+
       <div className="contact-container">
 
-        {/* Left Side */}
+
+       
+
         <div className="contact-info">
 
           <div className="contact-info-heading">
@@ -97,7 +111,9 @@ Subject: ${formData.subject}`;
 
           </div>
 
-          {/* Email */}
+
+          
+
           <div className="contact-info-card">
 
             <div className="contact-info-icon">
@@ -105,20 +121,28 @@ Subject: ${formData.subject}`;
             </div>
 
             <div className="contact-info-text">
-              <span>Email</span>
+
+              <span>
+                Email
+              </span>
 
               <h3>
                 vishalkum802126@gmail.com
               </h3>
+
             </div>
 
           </div>
 
-          {/* Phone */}
+
+         
+
           <a
             href="tel:+919304702949"
             className="contact-phone-link"
+            style={{textDecoration: "none" }}
           >
+
             <div className="contact-info-card">
 
               <div className="contact-info-icon">
@@ -126,17 +150,24 @@ Subject: ${formData.subject}`;
               </div>
 
               <div className="contact-info-text">
-                <span>Phone</span>
+
+                <span>
+                  Phone
+                </span>
 
                 <h3>
                   +91 9304702949
                 </h3>
+
               </div>
 
             </div>
+
           </a>
 
-          {/* Location */}
+
+         
+
           <div className="contact-info-card">
 
             <div className="contact-info-icon">
@@ -144,18 +175,24 @@ Subject: ${formData.subject}`;
             </div>
 
             <div className="contact-info-text">
-              <span>Location</span>
+
+              <span>
+                Location
+              </span>
 
               <h3>
                 India
               </h3>
+
             </div>
 
           </div>
 
         </div>
 
-        {/* Right Side */}
+
+        
+
         <div className="contact-form-container">
 
           <form
@@ -163,7 +200,9 @@ Subject: ${formData.subject}`;
             onSubmit={handleSubmit}
           >
 
-            {/* Name */}
+
+            
+
             <div className="contact-form-group">
 
               <label>
@@ -186,7 +225,9 @@ Subject: ${formData.subject}`;
 
             </div>
 
-            {/* Email */}
+
+         
+
             <div className="contact-form-group">
 
               <label>
@@ -209,7 +250,9 @@ Subject: ${formData.subject}`;
 
             </div>
 
-            {/* Subject */}
+
+           
+
             <div className="contact-form-group">
 
               <label>
@@ -232,16 +275,18 @@ Subject: ${formData.subject}`;
 
             </div>
 
-            {/* WhatsApp Button */}
+
+           
+
             <button
               type="submit"
               className="contact-send-button"
             >
+
               <Send size={18} />
 
-              <span>
-                Send on WhatsApp
-              </span>
+              Send on WhatsApp
+
             </button>
 
           </form>

@@ -136,7 +136,8 @@
   display: flex;
   align-items: center;
   gap: 15px;
-  background: #071326;
+  background: var(--page-bg);
+  color: var(--page-text);
   border: 1px solid #182d48;
   border-radius: 13px;
   border-style: none;
@@ -171,7 +172,7 @@
 .contact-info-text span {
   display: block;
   margin-bottom: 5px;
-  color: #7e8da1;
+  color: #768395;
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -181,7 +182,8 @@
 
 .contact-info-text h3 {
   margin: 0;
-  color: #ffffff;
+  background: var(--page-bg);
+  color: var(--page-text);
   font-size: 15px;
   font-weight: 500;
   border-style: none;
@@ -192,7 +194,8 @@
 /* FORM CONTAINER */
 .contact-form-container {
   padding: 30px;
-  background: #071326;
+  background: var(--page-bg);
+  color: var(--page-text);
   border: 1px solid #182d48;
   border-radius: 18px;
   box-sizing: border-box;
@@ -213,7 +216,7 @@
 .contact-form-group label {
   display: block;
   margin-bottom: 8px;
-  color: #c5cfdb;
+  color: #768395;
   font-size: 13px;
   font-weight: 500;
 }
@@ -227,7 +230,8 @@
   align-items: center;
   gap: 10px;
   padding: 0 14px;
-  background: #09192d;
+ background: var(--page-bg);
+  color: var(--page-text);
   border: 1px solid #1b3450;
   border-radius: 8px;
   box-sizing: border-box;
@@ -253,7 +257,8 @@
   border: none;
   outline: none;
   background: transparent;
-  color: #ffffff;
+  background: var(--page-bg);
+  color: var(--page-text);
   font-family: inherit;
   font-size: 14px;
 }

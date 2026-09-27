@@ -1,9 +1,21 @@
 import React from "react";
 import { ArrowRight, Download, Code2 } from "lucide-react";
 import "./Home.css";
-import { Link } from "react-router-dom";
 
 function Home() {
+
+  // Scroll to Projects section
+  const goToProjects = () => {
+    const projectsSection = document.getElementById("projects");
+
+    if (projectsSection) {
+      projectsSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   return (
     <section className="home">
 
@@ -28,19 +40,19 @@ function Home() {
           modern web technologies.
         </p>
 
+
         {/* Buttons */}
         <div className="home-buttons">
 
           {/* View Projects */}
-          <Link
-            to="/Projects"
-            style={{ textDecoration: "none" }}
+          <button
+            className="project-btn"
+            onClick={goToProjects}
           >
-            <button className="project-btn">
-              View Projects
-              <ArrowRight size={18} />
-            </button>
-          </Link>
+            View Projects
+            <ArrowRight size={18} />
+          </button>
+
 
           {/* Download Resume */}
           <a
@@ -48,13 +60,13 @@ function Home() {
             target="_blank"
             rel="noopener noreferrer"
             className="resume-btn"
-            style={{textDecoration: "none" }}
           >
             Download Resume
             <Download size={18} />
           </a>
 
         </div>
+
 
         {/* Small Skills */}
         <div className="home-tech">
@@ -77,10 +89,13 @@ function Home() {
         <div className="developer-card">
 
           <div className="card-top">
+
             <span className="dot red"></span>
             <span className="dot yellow"></span>
             <span className="dot green"></span>
+
           </div>
+
 
           <div className="code-content">
 
@@ -90,20 +105,45 @@ function Home() {
               = {"{"}
             </div>
 
-            <div className="code-line">
-              <span className="property">name:</span>{" "}
-              <span className="green">'Vishal Kumar'</span>,
-            </div>
 
             <div className="code-line">
-              <span className="property">role:</span>{" "}
-              <span className="green">'Web Developer'</span>,
+
+              <span className="property">
+                name:
+              </span>{" "}
+
+              <span className="green">
+                'Vishal Kumar'
+              </span>,
+
             </div>
 
+
             <div className="code-line">
-              <span className="property">skills:</span>{" "}
-              <span className="green">'React'</span>,
+
+              <span className="property">
+                role:
+              </span>{" "}
+
+              <span className="green">
+                'Web Developer'
+              </span>,
+
             </div>
+
+
+            <div className="code-line">
+
+              <span className="property">
+                skills:
+              </span>{" "}
+
+              <span className="green">
+                'React'
+              </span>,
+
+            </div>
+
 
             <div>
               {"}"}
@@ -111,8 +151,11 @@ function Home() {
 
           </div>
 
+
           <div className="card-icon">
+
             <Code2 size={55} />
+
           </div>
 
         </div>

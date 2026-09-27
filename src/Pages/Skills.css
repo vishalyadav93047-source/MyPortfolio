@@ -19,9 +19,7 @@
 }
 
 
-/* =========================================
-   BACKGROUND GLOW
-========================================= */
+
 
 .skills-section::before {
   content: "";
@@ -34,7 +32,8 @@
   left: -200px;
   top: 150px;
 
-  background: rgba(0, 217, 255, 0.07);
+  background: var(--page-bg);
+  color: var(--page-text);
 
   border-radius: 50%;
 
@@ -44,9 +43,6 @@
 }
 
 
-/* =========================================
-   HEADER
-========================================= */
 
 .skills-header {
   text-align: center;
@@ -95,9 +91,6 @@
 }
 
 
-/* =========================================
-   SKILLS GRID
-========================================= */
 
 .skills-grid {
   max-width: 1150px;
@@ -116,9 +109,7 @@
 }
 
 
-/* =========================================
-   SKILLS CARD
-========================================= */
+
 
 .skills-card {
   min-height: 210px;
@@ -131,7 +122,8 @@
 
   border-radius: 17px;
 
-  background: #071326;
+  background: var(--page-bg);
+  color: var(--page-text);
 
   transition: all 0.3s ease;
 }
@@ -147,9 +139,6 @@
 }
 
 
-/* =========================================
-   ICON
-========================================= */
 
 .skills-icon {
   width: 55px;
@@ -172,14 +161,13 @@
 }
 
 
-/* =========================================
-   CARD CONTENT
-========================================= */
+
 
 .skills-card-content h2 {
   margin-bottom: 8px;
 
-  color: #ffffff;
+  background: var(--page-bg);
+  color: var(--page-text);
 
   font-size: 21px;
 }
@@ -196,9 +184,6 @@
 }
 
 
-/* =========================================
-   PROGRESS
-========================================= */
 
 .skills-progress {
   width: calc(100% - 75px);
@@ -209,7 +194,8 @@
 
   border-radius: 10px;
 
-  background: #14253b;
+  background: var(--page-bg);
+  color: var(--page-text);
 
   overflow: hidden;
 }
@@ -259,9 +245,7 @@
 }
 
 
-/* =========================================
-   PERCENTAGE
-========================================= */
+
 
 .skills-percentage {
   position: absolute;
@@ -277,9 +261,7 @@
 }
 
 
-/* =========================================
-   RESPONSIVE
-========================================= */
+
 
 @media (max-width: 900px) {
 

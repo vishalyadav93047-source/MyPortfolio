@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-
-
+import React, { useEffect, useState } from "react";
 
 import Home from "./Pages/Home";
 import About from "./Pages/About";
@@ -8,19 +6,80 @@ import Skills from "./Pages/Skills";
 import Projects from "./Pages/Projects";
 import Contact from "./Pages/Contact";
 
-import "./App.css";
 import Navbar from "./Components/Navbar";
-import { Routes, Route } from "react-router-dom";
+
+import "./App.css";
 
 function App() {
 
-  // Dark / Light mode
   const [darkMode, setDarkMode] = useState(true);
+  const [activeSection, setActiveSection] = useState("home");
 
-  // Theme change
   const toggleTheme = () => {
-    setDarkMode((prevMode) => !prevMode);
+    setDarkMode((prev) => !prev);
   };
+
+
+  useEffect(() => {
+
+    const sections = document.querySelectorAll(".page-section");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+
+        entries.forEach((entry) => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add("section-visible");
+
+            setActiveSection(entry.target.id);
+
+          } else {
+
+            entry.target.classList.remove("section-visible");
+
+          }
+
+        });
+
+      },
+      {
+        threshold: 0.18,
+        rootMargin: "-70px 0px -10% 0px",
+      }
+    );
+
+
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+
+    return () => {
+      sections.forEach((section) => {
+        observer.unobserve(section);
+      });
+    };
+
+  }, []);
+
+
+  const scrollToSection = (id) => {
+
+    const section = document.getElementById(id);
+
+    if (section) {
+
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+
+    }
+
+  };
+
 
   return (
     <div
@@ -31,32 +90,62 @@ function App() {
       }
     >
 
-      {/* Navbar */}
-     
       <Navbar
-      darkMode={darkMode}
+        darkMode={darkMode}
         toggleTheme={toggleTheme}
+        activeSection={activeSection}
+        scrollToSection={scrollToSection}
       />
-      
-
-      {/* All Pages */}
-      
-      <Routes>
-
-       <Route path="/" element={<Home />}/>
-
-        <Route path="About" element={<About/>} />
-
-        <Route path="Skills" element={<Skills />} />
-
-        <Route path="Projects" element={<Projects />} />
-
-        <Route path="Contact" element={<Contact />} />
 
 
-        </Routes>
+      {/* HOME */}
 
-      
+      <section
+        id="home"
+        className="page-section home-section"
+      >
+        <Home />
+      </section>
+
+
+      {/* ABOUT */}
+
+      <section
+        id="about"
+        className="page-section about-section-wrapper"
+      >
+        <About />
+      </section>
+
+
+      {/* SKILLS */}
+
+      <section
+        id="skills"
+        className="page-section skills-section-wrapper"
+      >
+        <Skills />
+      </section>
+
+
+      {/* PROJECTS */}
+
+      <section
+        id="projects"
+        className="page-section projects-section-wrapper"
+      >
+        <Projects />
+      </section>
+
+
+      {/* CONTACT */}
+
+      <section
+        id="contact"
+        className="page-section contact-section-wrapper"
+      >
+        <Contact />
+      </section>
 
     </div>
   );

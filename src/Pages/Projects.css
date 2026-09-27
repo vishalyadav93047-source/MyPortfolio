@@ -74,8 +74,9 @@
 .projects-title {
   margin: 0;
 
-  color: #ffffff;
-  color: var(--page-text);
+  /* background: var(--page-bg);
+  color: var(--page-text); */
+  /* color: var(--page-text); */
 
   font-size: 52px;
 
@@ -101,9 +102,6 @@
 }
 
 
-/* =========================================
-   PROJECT GRID
-========================================= */
 
 .projects-grid {
   width: 100%;
@@ -124,20 +122,19 @@
 }
 
 
-/* =========================================
-   PROJECT CARD
-========================================= */
+
 
 .projects-card {
   width: 100%;
 
   overflow: hidden;
 
-  border: 1px solid #182d48;
+  border: 0.5px solid #1f324a;
 
   border-radius: 18px;
 
-  background: #071326;
+  background: var(--page-bg);
+  color: var(--page-text);
 
   box-sizing: border-box;
 
@@ -155,9 +152,7 @@
 }
 
 
-/* =========================================
-   PROJECT IMAGE
-========================================= */
+
 
 .projects-image {
   width: 100%;
@@ -203,49 +198,33 @@
 }
 
 
-/* =========================================
-   DIFFERENT PROJECT BACKGROUNDS
-========================================= */
+
 
 .projects-image-one {
-  background: linear-gradient(
-    135deg,
-    #0a1d32,
-    #06111f
-  );
+  background: var(--page-bg);
+  color: var(--page-text);
 }
 
 
 .projects-image-two {
-  background: linear-gradient(
-    135deg,
-    #081d2d,
-    #071021
-  );
+ background: var(--page-bg);
+  color: var(--page-text);
 }
 
 
 .projects-image-three {
-  background: linear-gradient(
-    135deg,
-    #0b1932,
-    #06101f
-  );
+ background: var(--page-bg);
+  color: var(--page-text);
 }
 
 
 .projects-image-four {
-  background: linear-gradient(
-    135deg,
-    #091b2d,
-    #05101d
-  );
+ background: var(--page-bg);
+  color: var(--page-text);
 }
 
 
-/* =========================================
-   PROJECT CONTENT
-========================================= */
+
 
 .projects-content {
   padding: 25px;
@@ -270,7 +249,8 @@
 .projects-content h2 {
   margin: 0 0 12px 0;
 
-  color: #ffffff;
+  background: var(--page-bg);
+  color: var(--page-text);
 
   font-size: 22px;
 
@@ -291,9 +271,7 @@
 }
 
 
-/* =========================================
-   TECHNOLOGIES
-========================================= */
+
 
 .projects-tech {
   display: flex;
@@ -321,9 +299,7 @@
 }
 
 
-/* =========================================
-   BUTTONS
-========================================= */
+
 
 .projects-buttons {
   width: 100%;
@@ -331,6 +307,52 @@
   display: flex;
 
   gap: 10px;
+}
+
+.projects-private-button{
+    height: 40px;
+
+    width: 400px;
+
+  padding: 0 15px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  border-radius: 30px;
+
+
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+
+  box-sizing: border-box;
+
+   border: 1px solid #00d9ff;
+
+  background: #00d9ff;
+
+  color: #03101c;
+
+}
+
+.projects-private-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(0, 217, 255, 0.2);
 }
 
 
@@ -364,9 +386,7 @@
 }
 
 
-/* =========================================
-   LIVE DEMO BUTTON
-========================================= */
+
 
 .projects-live-button {
   border: 1px solid #00d9ff;
@@ -385,9 +405,7 @@
 }
 
 
-/* =========================================
-   GITHUB BUTTON
-========================================= */
+
 
 .projects-github-button {
   border: 1px solid #253b55;
@@ -407,9 +425,7 @@
 }
 
 
-/* =========================================
-   RESPONSIVE
-========================================= */
+
 
 @media (max-width: 900px) {
 

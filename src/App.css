@@ -1,16 +1,16 @@
 /* =========================================
-   GLOBAL CSS
+   GLOBAL
 ========================================= */
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
- 
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 64px;
 }
 
 body {
@@ -53,6 +53,7 @@ body {
 ========================================= */
 
 .dark-theme {
+
   --page-bg: #030b1c;
   --page-text: #ffffff;
 
@@ -77,6 +78,7 @@ body {
 ========================================= */
 
 .light-theme {
+
   --page-bg: #f5f8fc;
   --page-text: #111827;
 
@@ -97,24 +99,84 @@ body {
 
 
 /* =========================================
-   COMMON
+   PAGE SECTION
 ========================================= */
 
-.website-content {
-  width: 100%;
-  min-height: calc(100vh - 82px);
+.page-section {
 
-  background: var(--page-bg);
-  color: var(--page-text);
+  width: 100%;
+
+  min-height: calc(100vh - 64px);
+
+  position: relative;
+
+  scroll-margin-top: 64px;
+
+  /* Initial animation state */
+
+  opacity: 0;
+
+  transform:
+    translateY(100px)
+    scale(0.96);
+
+  filter: blur(5px);
 
   transition:
-    background-color 0.35s ease,
-    color 0.35s ease;
+    opacity 0.9s ease,
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.9s ease;
+
 }
 
 
 /* =========================================
-   COMMON BUTTON
+   ACTIVE / VISIBLE SECTION
+========================================= */
+
+.page-section.section-visible {
+
+  opacity: 1;
+
+  transform:
+    translateY(0)
+    scale(1);
+
+  filter: blur(0);
+
+}
+
+
+/* =========================================
+   SECTION BACKGROUND
+========================================= */
+
+.home-section,
+.about-section-wrapper,
+.skills-section-wrapper,
+.projects-section-wrapper,
+.contact-section-wrapper {
+
+  background: var(--page-bg);
+
+  color: var(--page-text);
+
+}
+
+
+/* =========================================
+   HOME
+========================================= */
+
+.home-section {
+
+  min-height: calc(100vh - 64px);
+
+}
+
+
+/* =========================================
+   BUTTON
 ========================================= */
 
 button {
@@ -123,13 +185,126 @@ button {
 
 
 /* =========================================
+   SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--page-bg);
+}
+
+::-webkit-scrollbar-thumb {
+
+  background: #00d9ff;
+
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #35cfff;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+  html {
+    scroll-padding-top: 70px;
+  }
+
+  .page-section {
+
+    min-height: calc(100vh - 70px);
+
+    scroll-margin-top: 70px;
+
+    transform:
+      translateY(80px)
+      scale(0.97);
+
+  }
+
+}
+
+
+/* =========================================
    MOBILE
 ========================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 700px) {
 
-  .website-content {
-    min-height: calc(100vh - 72px);
+  html {
+    scroll-padding-top: 125px;
+  }
+
+  .page-section {
+
+    min-height: auto;
+
+    scroll-margin-top: 125px;
+
+    transform:
+      translateY(70px)
+      scale(0.97);
+
+    filter: blur(3px);
+
+  }
+
+  .page-section.section-visible {
+
+    transform:
+      translateY(0)
+      scale(1);
+
+  }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 450px) {
+
+  .page-section {
+
+    transform:
+      translateY(60px)
+      scale(0.98);
+
+  }
+
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .page-section {
+
+    opacity: 1;
+
+    transform: none;
+
+    filter: none;
+
+    transition: none;
+
   }
 
 }

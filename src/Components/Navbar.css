@@ -1,61 +1,79 @@
-/* =========================
+/* =========================================
    NAVBAR
-========================= */
+========================================= */
 
 .navbar {
   width: 100%;
   height: 64px;
+
   padding: 0 32px;
+
   box-sizing: border-box;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-   background: var(--page-bg);
+  background: var(--page-bg);
   color: var(--page-text);
+
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 
   position: sticky;
   top: 0;
+
   z-index: 1000;
 
   font-family: "Poppins", sans-serif;
 }
 
 
-/* =========================
+/* =========================================
    LOGO
-========================= */
+========================================= */
 
 .navbar-logo {
   display: flex;
   align-items: center;
+
   gap: 10px;
+
   min-width: 220px;
-   background: var(--page-bg);
+
+  background: var(--page-bg);
   color: var(--page-text);
+
+  cursor: default;
 }
 
 .navbar-logo-icon {
   color: #43d9ff;
+
   stroke-width: 2.5;
+
+  transition: transform 0.3s ease;
+}
+
+.navbar-logo:hover .navbar-logo-icon {
+  transform: scale(1.08);
 }
 
 .navbar-name {
   display: flex;
   align-items: center;
+
   gap: 5px;
 
   font-size: 21px;
   font-weight: 700;
+
   letter-spacing: -0.4px;
-   background: var(--page-bg);
+
+  background: var(--page-bg);
   color: var(--page-text);
 }
 
 .navbar-name span:first-child {
-   background: var(--page-bg);
   color: var(--page-text);
 }
 
@@ -64,12 +82,15 @@
 }
 
 
-
+/* =========================================
+   NAVBAR MENU
+========================================= */
 
 .navbar-menu {
   display: flex;
   align-items: center;
   justify-content: center;
+
   flex: 1;
 }
 
@@ -79,60 +100,128 @@
   justify-content: center;
 
   gap: 28px;
+
   margin: 0;
   padding: 0;
 
   list-style: none;
 }
 
-.navbar-item a {
-  text-decoration: none;
-}
+
+/* =========================================
+   NAVBAR ITEMS
+========================================= */
 
 .navbar-item li {
   position: relative;
 
-  background: var(--page-bg);
-  color: var(--page-text);
-  font-size: 14px;
-  font-weight: 500;
+  display: flex;
+  align-items: center;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+
+/* =========================================
+   NAV BUTTON
+========================================= */
+
+.nav-link {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  outline: none;
 
   padding: 22px 0 20px;
 
+  background: transparent;
+
+  color: var(--page-text);
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 14px;
+  font-weight: 500;
+
   cursor: pointer;
-  transition: color 0.3s ease;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
 }
 
 
+/* =========================================
+   HOVER
+========================================= */
 
+.nav-link:hover {
+  color: #3bd5ff;
 
-.navbar-item li:hover {
-  color: #ffffff;
+  transform: translateY(-1px);
 }
 
 
+/* =========================================
+   ACTIVE
+========================================= */
+
+.nav-link.active {
+  color: #3bd5ff;
+}
 
 
-.navbar-item li::after {
+/* =========================================
+   UNDERLINE
+========================================= */
+
+.nav-link::after {
   content: "";
 
   position: absolute;
+
   left: 50%;
-  bottom: 10px;
+
+  bottom: 8px;
 
   width: 0;
   height: 2px;
 
   background: #3bd5ff;
-  border-radius: 10px;
+
+  border-radius: 20px;
 
   transform: translateX(-50%);
-  transition: width 0.3s ease;
+
+  transition:
+    width 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-.navbar-item li:hover::after {
+
+/* =========================================
+   ACTIVE UNDERLINE
+========================================= */
+
+.nav-link.active::after {
   width: 100%;
+
+  box-shadow:
+    0 0 8px rgba(59, 213, 255, 0.6),
+    0 0 15px rgba(59, 213, 255, 0.25);
 }
+
+
+/* =========================================
+   THEME TOGGLE
+========================================= */
 
 .theme-toggle {
   width: 104px;
@@ -145,9 +234,11 @@
   padding: 4px 6px;
 
   border: 1px solid rgba(255, 255, 255, 0.08);
+
   border-radius: 22px;
 
-  background: #10182d;
+   background: var(--page-bg);
+  color: var(--page-text);
 
   cursor: pointer;
 
@@ -155,15 +246,88 @@
     inset 0 0 8px rgba(0, 0, 0, 0.25),
     0 4px 15px rgba(0, 0, 0, 0.15);
 
-  transition: all 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s ease;
 }
 
 .theme-toggle:hover {
   border-color: rgba(67, 217, 255, 0.35);
+
+  transform: translateY(-1px);
+}
+
+.nav-link {
+  position: relative;
+
+  display: block;
+
+  margin: 0;
+  padding: 0;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: var(--page-text);
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #3bd5ff;
+}
+
+.nav-link.active {
+  color: #3bd5ff;
+}
+
+.nav-link::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+
+  bottom: -21px;
+
+  width: 0;
+  height: 2px;
+
+  background: #3bd5ff;
+
+  border-radius: 20px;
+
+  transform: translateX(-50%);
+
+  transition:
+    width 0.3s ease,
+    box-shadow 0.3s ease;
+
+}
+
+.nav-link.active::after {
+
+  width: 100%;
+
+  box-shadow:
+    0 0 8px rgba(59, 213, 255, 0.7);
+
 }
 
 
-/* Theme icons */
+/* =========================================
+   THEME ICON
+========================================= */
 
 .theme-icon {
   width: 30px;
@@ -184,22 +348,25 @@
 }
 
 
-/* Active icon */
+/* =========================================
+   ACTIVE THEME ICON
+========================================= */
 
 .active-theme-icon {
   color: #ffffff;
 
   background: #3f78ff;
 
-  box-shadow: 0 0 12px rgba(63, 120, 255, 0.35);
+  box-shadow:
+    0 0 12px rgba(63, 120, 255, 0.35);
 
   transform: scale(1.03);
 }
 
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* =========================================
+   TABLET
+========================================= */
 
 @media (max-width: 900px) {
 
@@ -215,7 +382,7 @@
     gap: 18px;
   }
 
-  .navbar-item li {
+  .nav-link {
     font-size: 13px;
   }
 
@@ -225,40 +392,71 @@
 }
 
 
+/* =========================================
+   MOBILE
+========================================= */
+
 @media (max-width: 700px) {
 
   .navbar {
     height: auto;
+
     min-height: 64px;
 
     flex-wrap: wrap;
+
     padding: 12px 18px;
+
     gap: 12px;
   }
+
+
+  /* Logo */
 
   .navbar-logo {
     flex: 1;
   }
 
+
+  /* Menu */
+
   .navbar-menu {
     order: 3;
+
     width: 100%;
+
     overflow-x: auto;
+
     justify-content: flex-start;
+
+    scrollbar-width: none;
   }
+
+  .navbar-menu::-webkit-scrollbar {
+    display: none;
+  }
+
 
   .navbar-item {
     width: max-content;
+
     gap: 24px;
   }
 
-  .navbar-item li {
+
+  .nav-link {
     padding: 10px 0 14px;
   }
 
-  .navbar-item li::after {
-    bottom: 5px;
+
+  /* Mobile underline */
+
+  .nav-link::after {
+    bottom: 4px;
   }
+
+
+  /* Theme */
 
   .theme-toggle {
     width: 88px;
@@ -266,7 +464,15 @@
 }
 
 
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
 @media (max-width: 450px) {
+
+  .navbar {
+    padding: 12px 14px;
+  }
 
   .navbar-name {
     font-size: 18px;
@@ -281,7 +487,16 @@
     gap: 20px;
   }
 
-  .navbar-item li {
+  .nav-link {
     font-size: 12px;
+  }
+
+  .theme-toggle {
+    width: 82px;
+  }
+
+  .theme-icon {
+    width: 28px;
+    height: 28px;
   }
 }
