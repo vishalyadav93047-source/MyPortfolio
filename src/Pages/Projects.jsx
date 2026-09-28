@@ -52,19 +52,20 @@ function Projects() {
             </div>
 
             <h2>
-              Smart Customer Support System
+              Amazon Webpage UI Clone
             </h2>
 
             <p>
-              A modern customer support system designed to provide
-              users with a simple and interactive support experience.
+            A responsive UI clone of the Amazon homepage
+            built using pure HTML and CSS. This project 
+            focuses on layout design, flexbox, and modern 
+            styling techniques to closely replicate the original interface.
             </p>
 
             <div className="projects-tech">
               <span>HTML</span>
               <span>CSS</span>
-              <span>JavaScript</span>
-              <span>React</span>
+              
             </div>
 
             <div className="projects-buttons">
@@ -160,6 +161,7 @@ function Projects() {
               <span>React</span>
               <span>CSS</span>
               <span>JavaScript</span>
+              <span>React</span>
             </div>
 
             <div className="projects-buttons">
@@ -207,6 +209,7 @@ function Projects() {
               <span>React</span>
               <span>CSS</span>
               <span>JavaScript</span>
+              <span>React</span>
             </div>
 
             <div className="projects-buttons">
