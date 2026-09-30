@@ -1,10 +1,8 @@
+
 import React from "react";
 import {
   ExternalLink,
-  Code2,
   ShoppingCart,
-  BriefcaseBusiness,
-  Headphones,
   GitBranch,
 } from "lucide-react";
 import { RiGitRepositoryPrivateLine } from "react-icons/ri";
@@ -14,8 +12,6 @@ import "./Projects.css";
 function Projects() {
   return (
     <section className="projects-section">
-
-    
 
       <div className="projects-header">
 
@@ -34,15 +30,12 @@ function Projects() {
 
       </div>
 
-
-     
       <div className="projects-grid">
 
-        {/* PROJECT 1 */}
         <div className="projects-card">
 
           <div className="projects-image projects-image-one">
-            <Code2 size={55} />
+            <img src="/Amazon.png" alt="Amazon clone" />
           </div>
 
           <div className="projects-content">
@@ -56,29 +49,38 @@ function Projects() {
             </h2>
 
             <p>
-            A responsive UI clone of the Amazon homepage
-            built using pure HTML and CSS. This project 
-            focuses on layout design, flexbox, and modern 
-            styling techniques to closely replicate the original interface.
+              A responsive UI clone of the Amazon homepage
+              built using pure HTML and CSS. This project
+              focuses on layout design, flexbox, and modern
+              styling techniques to closely replicate the original interface.
             </p>
 
             <div className="projects-tech">
               <span>HTML</span>
               <span>CSS</span>
-              
             </div>
 
             <div className="projects-buttons">
 
-              <button className="projects-live-button">
+              {/* <a
+                href="PASTE_AMAZON_LIVE_DEMO_URL"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="projects-live-button"
+              >
                 <ExternalLink size={16} />
                 Live Demo
-              </button>
+              </a> */}
 
-              <button className="projects-github-button">
+              <a
+                href="https://github.com/vishalyadav93047-source/Project-1--Amazon"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="projects-github-button"
+              >
                 <GitBranch size={16} />
                 GitHub
-              </button>
+              </a>
 
             </div>
 
@@ -86,12 +88,10 @@ function Projects() {
 
         </div>
 
-
-        {/* PROJECT 2 */}
         <div className="projects-card">
 
           <div className="projects-image projects-image-two">
-            <BriefcaseBusiness size={55} />
+            <img src="/Labour.png" alt="Labour" />
           </div>
 
           <div className="projects-content">
@@ -118,15 +118,13 @@ function Projects() {
 
             <div className="projects-buttons">
 
-              <button className="projects-private-button">
-                <RiGitRepositoryPrivateLine  size={16} />
+              <button
+                className="projects-private-button"
+                type="button"
+              >
+                <RiGitRepositoryPrivateLine size={16} />
                 Private Startup Project
               </button>
-
-              {/* <button className="projects-github-button">
-                <GitBranch size={16} />
-                GitHub
-              </button> */}
 
             </div>
 
@@ -134,8 +132,6 @@ function Projects() {
 
         </div>
 
-
-        {/* PROJECT 3 */}
         <div className="projects-card">
 
           <div className="projects-image projects-image-three">
@@ -161,20 +157,29 @@ function Projects() {
               <span>React</span>
               <span>CSS</span>
               <span>JavaScript</span>
-              <span>React</span>
             </div>
 
             <div className="projects-buttons">
 
-              <button className="projects-live-button">
+              <a
+                href="PASTE_GAMING_STORE_LIVE_DEMO_URL"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="projects-live-button"
+              >
                 <ExternalLink size={16} />
                 Live Demo
-              </button>
+              </a>
 
-              <button className="projects-github-button">
+              <a
+                href="PASTE_GAMING_STORE_GITHUB_URL"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="projects-github-button"
+              >
                 <GitBranch size={16} />
                 GitHub
-              </button>
+              </a>
 
             </div>
 
@@ -182,12 +187,10 @@ function Projects() {
 
         </div>
 
-
-        {/* PROJECT 4 */}
         <div className="projects-card">
 
           <div className="projects-image projects-image-four">
-            <Headphones size={55} />
+            <img src="/Ambienceweb.png" alt="Ambience" />
           </div>
 
           <div className="projects-content">
@@ -197,32 +200,43 @@ function Projects() {
             </div>
 
             <h2>
-              Portfolio Website
+              Ambience Complete Education – Website Clone
             </h2>
 
             <p>
-              A responsive personal portfolio website showcasing
-              skills, projects, education and certifications.
+              Developed a responsive educational website
+              clone for Ambience Complete Education with
+              modern UI, course sections, navigation,
+              and interactive components.
             </p>
 
             <div className="projects-tech">
               <span>React</span>
               <span>CSS</span>
               <span>JavaScript</span>
-              <span>React</span>
             </div>
 
             <div className="projects-buttons">
 
-              <button className="projects-live-button">
+              <a
+                href="https://ambience-clone.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="projects-live-button"
+              >
                 <ExternalLink size={16} />
                 Live Demo
-              </button>
+              </a>
 
-              <button className="projects-github-button">
+              <a
+                href="https://github.com/vishalyadav93047-source/Ambience"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="projects-github-button"
+              >
                 <GitBranch size={16} />
                 GitHub
-              </button>
+              </a>
 
             </div>
 

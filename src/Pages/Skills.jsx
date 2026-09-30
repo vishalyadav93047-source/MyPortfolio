@@ -73,7 +73,7 @@ function Skills() {
           </div>
 
           <span className="skills-percentage">
-            90%
+            95%
           </span>
 
         </div>
@@ -108,7 +108,7 @@ function Skills() {
           </div>
 
           <span className="skills-percentage">
-            85%
+            100%
           </span>
 
         </div>
@@ -143,7 +143,7 @@ function Skills() {
           </div>
 
           <span className="skills-percentage">
-            80%
+            90%
           </span>
 
         </div>
@@ -178,7 +178,7 @@ function Skills() {
           </div>
 
           <span className="skills-percentage">
-            80%
+            95%
           </span>
 
         </div>
@@ -213,7 +213,7 @@ function Skills() {
           </div>
 
           <span className="skills-percentage">
-            75%
+            100%
           </span>
 
         </div>
@@ -248,7 +248,7 @@ function Skills() {
           </div>
 
           <span className="skills-percentage">
-            85%
+            100%
           </span>
 
         </div>

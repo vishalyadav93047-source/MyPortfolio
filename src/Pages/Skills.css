@@ -213,35 +213,35 @@
 /* Progress Values */
 
 .skills-html {
-  width: 90%;
+  width: 95%;
 }
 
 .skills-css {
-  width: 85%;
+  width: 100%;
 }
 
 .skills-javascript {
-  width: 80%;
+  width: 90%;
 }
 
 .skills-react {
-  width: 80%;
+  width: 95%;
 }
 
-.skills-python {
+/* .skills-python {
   width: 75%;
-}
+} */
 
-.skills-sql {
+/* .skills-sql {
   width: 75%;
-}
+} */
 
 .skills-git {
-  width: 75%;
+  width: 100%;
 }
 
 .skills-responsive {
-  width: 85%;
+  width: 100%;
 }
 
 
