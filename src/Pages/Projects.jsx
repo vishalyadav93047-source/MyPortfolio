@@ -162,9 +162,9 @@ function Projects() {
             <div className="projects-buttons">
 
               <a
-                href="PASTE_GAMING_STORE_LIVE_DEMO_URL"
-                target="_blank"
-                rel="noopener noreferrer"
+                // href="PASTE_GAMING_STORE_LIVE_DEMO_URL"
+                // target="_blank"
+                // rel="noopener noreferrer"
                 className="projects-live-button"
               >
                 <ExternalLink size={16} />
@@ -172,9 +172,9 @@ function Projects() {
               </a>
 
               <a
-                href="PASTE_GAMING_STORE_GITHUB_URL"
-                target="_blank"
-                rel="noopener noreferrer"
+                // href="PASTE_GAMING_STORE_GITHUB_URL"
+                // target="_blank"
+                // rel="noopener noreferrer"
                 className="projects-github-button"
               >
                 <GitBranch size={16} />
