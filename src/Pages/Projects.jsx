@@ -135,7 +135,7 @@ function Projects() {
         <div className="projects-card">
 
           <div className="projects-image projects-image-three">
-            <ShoppingCart size={55} />
+            <img src="/Student-lms.png" alt="Labour" />
           </div>
 
           <div className="projects-content">
@@ -162,9 +162,9 @@ function Projects() {
             <div className="projects-buttons">
 
               <a
-                // href="PASTE_GAMING_STORE_LIVE_DEMO_URL"
-                // target="_blank"
-                // rel="noopener noreferrer"
+                href="https://student-lms-xi.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="projects-live-button"
               >
                 <ExternalLink size={16} />
@@ -172,9 +172,9 @@ function Projects() {
               </a>
 
               <a
-                // href="PASTE_GAMING_STORE_GITHUB_URL"
-                // target="_blank"
-                // rel="noopener noreferrer"
+                href="https://github.com/vishalyadav93047-source/Student--LMS.git"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="projects-github-button"
               >
                 <GitBranch size={16} />
