@@ -62,16 +62,6 @@ function Projects() {
 
             <div className="projects-buttons">
 
-              {/* <a
-                href="PASTE_AMAZON_LIVE_DEMO_URL"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="projects-live-button"
-              >
-                <ExternalLink size={16} />
-                Live Demo
-              </a> */}
-
               <a
                 href="https://github.com/vishalyadav93047-source/Project-1--Amazon"
                 target="_blank"
